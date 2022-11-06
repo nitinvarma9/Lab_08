@@ -82,7 +82,13 @@ class Tictactoe
         }
         return true;
     }
-
+ private static String togglePlayer(String player)
+    {
+        if(player.equals("X"))
+            return "O";
+        else
+            return "X";
+    }
 
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
@@ -112,7 +118,7 @@ class Tictactoe
 
                 if(isWin(player))
                     break;
-                player = player;
+                player = togglePlayer(player);
             }
             display();
 
@@ -127,4 +133,3 @@ class Tictactoe
         console.close();
     }
 }
-
