@@ -170,7 +170,44 @@ public class SafeInputs {
             astCount--;
         }
     }
-}
+        public static int getRangeInt(Scanner console, String prompt, int low, int max) {
+
+            int result;
+
+// Loop until valid input is read in
+            do {
+// Prompt user and loop until they have entered a number
+                System.out.print(prompt);
+                while (!console.hasNextInt()) {
+                    console.nextLine();
+                    System.out.print(prompt);
+                }
+
+// Read in the number
+                result = console.nextInt();
+            } while (result < low || result > max);
+
+// Return the result
+            return result;
+        }
+
+        public static boolean getNYConfirm(Scanner console, String prompt)
+        {
+            String str;
+
+// Prompt user and loop until they have entered a number
+            System.out.print(prompt);
+
+// Read in the string
+            str = console.next();
+            if (str.equalsIgnoreCase("yes") || str.equalsIgnoreCase("y"))
+                return true;
+
+// Return false
+            return false;
+        }
+    }
+
 
 
 
